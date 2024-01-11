@@ -1,0 +1,208 @@
+// Colors
+
+$primary-color: #007bff;
+$secondary-color: #0056b3;
+$input-color: #c2baba;
+$border-color: #ccc;
+$border-radius: 10px;
+$red-color: #b30058;
+
+
+// quizTab
+
+body {
+  background-color: #EFF0F3;
+}
+
+.quiz {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  padding: 50px;
+  row-gap: 75px;
+
+  &__current {
+    color: #000000;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__question {
+    position: relative;
+    padding: 75px 35px;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0, rgba(27, 31, 35, 0.15) 0 0 0 1px;
+    border-radius: 10px;
+    width: 80%;
+
+    h3 {
+      color: #000000;
+    }
+
+    &_timer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $red-color;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 5px solid $red-color;
+      background: #ffffff;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  &__answers {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    width: 80%;
+
+    label {
+      display: inline-flex;
+      position: relative;
+      padding: 20px 35px;
+      background: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      span {
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border: 1px solid rgb(210, 215, 220);
+        border-radius: 50%;
+
+        &::after{
+          content: "";
+          margin-top: 50%;
+          margin-left: 50%;
+          background: #A0A0A0;
+          top: 50%;
+          left: 50%;
+          width: 10px;
+          height: 10px;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+        }
+      }
+
+    }
+
+    input {
+      opacity: 0;
+    }
+  }
+
+  button {
+    font-size: 22px;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background-color: $red-color;
+    color: #ffffff;
+    outline: 0;
+    overflow: visible;
+    box-shadow: none;
+    border: 1px solid #ffffff;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+
+    &:hover{
+      opacity: 0.9;
+    }
+  }
+}
+
+label input:checked ~ span:after {
+  display: block;
+}
+
+// preloader
+
+.load {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  margin: 0 auto;
+}
+
+.load hr {
+  border: 0;
+  margin: 0;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  border-radius: 50%;
+  animation: spin 2s ease infinite;
+  opacity: 1;
+}
+
+.load-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.load h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.load .container :first-child {
+  background: #000000;
+  animation-delay: -1.5s;
+}
+
+.load .container :nth-child(2) {
+  background: $red-color;
+  animation-delay: -1s;
+}
+
+.load .container :nth-child(3) {
+  background: #000000;
+  animation-delay: -0.5s;
+}
+
+.load .container :last-child {
+  background: $red-color;
+}
+
+@keyframes spin {
+  0%, 100% {
+    transform: translate(0)
+  }
+  25% {
+    transform: translate(160%)
+  }
+  50% {
+    transform: translate(160%, 160%)
+  }
+  75% {
+    transform: translate(0, 160%)
+  }
+}

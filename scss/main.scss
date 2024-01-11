@@ -1,0 +1,149 @@
+// Colors
+
+$primary-color: #007bff;
+$secondary-color: #0056b3;
+$input-color: #c2baba;
+$border-color: #ccc;
+$border-radius: 10px;
+$red-color: #b30058;
+
+// Style
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.registration-header {
+  font-size: 75px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-family: 'Dekko', cursive;
+  color: $red-color;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-form {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 2em;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &__field {
+    margin-bottom: 15px;
+
+    & label {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    & input {
+      width: 300px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid $border-color;
+      border-radius: 5px;
+      background-color: $input-color;
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    background-color: $primary-color;
+    color: #fff;
+    margin-top: 45px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+// preloader
+
+.load {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  margin: 0 auto;
+}
+
+.load hr {
+  border: 0;
+  margin: 0;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  border-radius: 50%;
+  animation: spin 2s ease infinite;
+  opacity: 1;
+}
+
+.load-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.load h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.load .container :first-child {
+  background: #000000;
+  animation-delay: -1.5s;
+}
+
+.load .container :nth-child(2) {
+  background: $red-color;
+  animation-delay: -1s;
+}
+
+.load .container :nth-child(3) {
+  background: #000000;
+  animation-delay: -0.5s;
+}
+
+.load .container :last-child {
+  background: $red-color;
+}
+
+@keyframes spin {
+  0%, 100% {
+    transform: translate(0)
+  }
+  25% {
+    transform: translate(160%)
+  }
+  50% {
+    transform: translate(160%, 160%)
+  }
+  75% {
+    transform: translate(0, 160%)
+  }
+}
+
